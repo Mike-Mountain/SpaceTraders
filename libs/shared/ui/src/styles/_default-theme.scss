@@ -1,5 +1,5 @@
-@import "variables";
-@import "variable-mappings";
+@import "variables/variables";
+@import "variables/variable-mappings";
 
 .theme-dark {
   $body-background-color: $dark;

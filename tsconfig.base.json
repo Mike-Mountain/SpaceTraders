@@ -17,6 +17,7 @@
     "paths": {
       "@space-trader/api/data-access": ["libs/api/data-access/src/index.ts"],
       "@space-trader/api/utils": ["libs/api/utils/src/index.ts"],
+      "@space-trader/layout/ui": ["libs/layout/ui/src/index.ts"],
       "@space-trader/shared/data-access": [
         "libs/shared/data-access/src/index.ts"
       ],

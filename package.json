@@ -2,7 +2,9 @@
   "name": "@space-trader/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "serve": "nx serve space-trader"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.0.0",
@@ -14,6 +16,7 @@
     "@angular/platform-browser-dynamic": "~16.0.0",
     "@angular/router": "~16.0.0",
     "@nx/angular": "16.2.2",
+    "bulma": "^0.9.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

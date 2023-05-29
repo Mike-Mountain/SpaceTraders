@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/api/data-access/src",
   "prefix": "space-trader",
-  "tags": [],
+  "tags": ["scope:api", "type:data-access"],
   "projectType": "library",
   "targets": {
     "test": {
