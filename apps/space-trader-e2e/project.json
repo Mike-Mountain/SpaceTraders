@@ -1,0 +1,33 @@
+{
+  "name": "space-trader-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/space-trader-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/space-trader-e2e/cypress.config.ts",
+        "devServerTarget": "space-trader:serve:development",
+        "testingType": "e2e"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "space-trader:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "space-trader:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/space-trader-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["space-trader"]
+}
