@@ -1,0 +1,59 @@
+// Base color variables:
+$orange: 	#FF4D00;
+$yellow: #E6AF0A;
+$green: #2DCD0A;
+$turquoise: #04F6BA;
+$cyan: #128DF3;
+$blue: #062BD0;
+$purple: #710DCE;
+$red: #DE0D33;
+
+$orangeValues: 255,77,0	;
+$yellowValues: 230,175,10;
+$greenValues: 45,205,10;
+$turquoiseValues: 4,246,186;
+$cyanValues: 18,141,243;
+$blueValues: 6,43,208;
+$purpleValues: 113,13,206;
+$redValues: 222,13,51;
+$whiteValues: 245, 245, 245;
+$darkValues: 54, 54, 54;
+
+$black: #0A0A0A;
+$black-bis: #121212;
+$black-ter: #242424;
+$grey-darker: #363636;
+$grey-dark: #4A4A4A;
+$grey: #7A7A7A;
+$grey-light: #B5B5B5;
+$grey-lighter: #DBDBDB;
+$grey-lightest: #EDEDED;
+$white-ter: #F5F5F5;
+$white-bis: #FAFAFA;
+$white: #FFFFFF;
+
+// Base Font variables:
+$family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-serif: "Times New Roman", "Garamond", "Baskerville", "Georgia", "Courier New", serif;
+$family-monospace: monospace;
+
+// Font theme variables (derived from above):
+$family-primary: $family-sans-serif;
+$family-secondary: $family-serif;
+
+// Theme variables (colors derived from above):
+$primary: $orange;
+$info: $cyan;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+$light: $white-ter;
+$dark: $grey-darker;
+
+$primaryValues: $orangeValues;
+$infoValues: $cyanValues;
+$successValues: $greenValues;
+$warningValues: $yellowValues;
+$dangerValues: $redValues;
+$lightValues: $whiteValues;
+$darkValues: $darkValues;

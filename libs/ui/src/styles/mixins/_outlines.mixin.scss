@@ -1,0 +1,23 @@
+@import "../functions/text-contrast.function";
+@import "bulma/sass/elements/box";
+
+@mixin border($color, $width: 1) {
+  border: #{$width}px solid var(--#{$color});
+  .color-text {
+    color: var(--#{$color});
+  }
+}
+
+@mixin box-shadow($color) {
+  box-shadow: 0 0.5em 1em -0.125em rgba(var(--#{$color}Values), 0.4), 0 0px 0 1px rgba(var(--#{$color}Values), 0.1) !important;
+}
+
+@mixin background($color) {
+  background-color: var(--#{$color}) !important;
+  .color-text {
+    mix-blend-mode: screen;
+    filter: invert(1);
+  }
+}
+
+

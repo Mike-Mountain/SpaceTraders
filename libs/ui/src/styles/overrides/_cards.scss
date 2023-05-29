@@ -1,0 +1,78 @@
+@import "../mixins/outlines.mixin";
+
+.card-primary {
+  @include border(primary);
+  @include box-shadow(primary);
+}
+
+.card-info {
+  @include border(info);
+  @include box-shadow(info);
+}
+
+.card-success {
+  @include border(success);
+  @include box-shadow(success);
+}
+
+.card-warn {
+  @include border(warning);
+  @include box-shadow(warning);
+}
+
+.card-danger {
+  @include border(danger);
+  @include box-shadow(danger);
+}
+
+.card-light {
+  @include border(light);
+  @include box-shadow(light);
+}
+
+.card-dark {
+  @include border(dark);
+  @include box-shadow(dark);
+}
+
+.card-primary-bg {
+  @include border(primary);
+  @include box-shadow(primary);
+  @include background(primary);
+}
+
+.card-info-bg {
+  @include border(info);
+  @include box-shadow(info);
+  @include background(info);
+}
+
+.card-success-bg {
+  @include border(success);
+  @include box-shadow(success);
+  @include background(success);
+}
+
+.card-warn-bg {
+  @include border(warning);
+  @include box-shadow(warning);
+  @include background(warning);
+}
+
+.card-danger-bg {
+  @include border(danger);
+  @include box-shadow(danger);
+  @include background(danger);
+}
+
+.card-light-bg {
+  @include border(light);
+  @include box-shadow(light);
+  @include background(light);
+}
+
+.card-dark-bg {
+  @include border(dark);
+  @include box-shadow(dark);
+  @include background(dark);
+}

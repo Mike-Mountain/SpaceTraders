@@ -1,0 +1,19 @@
+@import "variables";
+// Map scss variables to css properties
+:root {
+  --primary: #{$primary};
+  --info: #{$info};
+  --success: #{$success};
+  --warning: #{$warning};
+  --danger: #{$danger};
+  --light: #{$light};
+  --dark: #{$dark};
+
+  --primaryValues: #{$primaryValues};
+  --infoValues: #{$infoValues};
+  --successValues: #{$successValues};
+  --warningValues: #{$warningValues};
+  --dangerValues: #{$dangerValues};
+  --lightValues: #{$lightValues};
+  --darkValues: #{$darkValues};
+}

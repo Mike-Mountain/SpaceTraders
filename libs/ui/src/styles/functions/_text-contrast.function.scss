@@ -1,0 +1,7 @@
+@function set-text-color($bgColor) {
+  @if(lightness($bgColor) > 40) {
+    @return var(--dark);
+  } @else {
+    @return var(--light);
+  }
+}

@@ -1,0 +1,86 @@
+// 1. Background Colours
+.bg-color-primary {
+  background-color: var(--primary) !important;
+}
+
+.bg-color-info {
+  background-color: var(--info) !important;
+}
+
+.bg-color-success {
+  background-color: var(--success) !important;
+}
+
+.bg-color-warn {
+  background-color: var(--warning) !important;
+}
+
+.bg-color-danger {
+  background-color: var(--danger) !important;
+}
+
+.bg-color-light {
+  background-color: var(--light) !important;
+}
+
+.bg-color-dark {
+  background-color: var(--dark) !important;
+}
+
+//2. Text Colours
+
+.text-color-primary {
+  color: var(--primary) !important;
+}
+
+.text-info {
+  color: var(--info) !important;
+}
+
+.text-success {
+  color: var(--success) !important;
+}
+
+.text-warn {
+  color: var(--warn) !important;
+}
+
+.text-danger {
+  color: var(--danger) !important;
+}
+
+//3. Line colours
+
+.primary-line-break {
+  background-color: var(--primary);
+  height: 1px;
+}
+
+//4. Border Colors
+.border-primary {
+  border-color: var(--primary);
+}
+
+.border-info {
+  border-color: var(--info);
+}
+
+.border-success {
+  border-color: var(--success);
+}
+
+.border-warn {
+  border-color: var(--warning);
+}
+
+.border-danger {
+  border-color: var(--danger);
+}
+
+.border-light {
+  border-color: var(--light);
+}
+
+.border-dark {
+  border-color: var(--dark);
+}
