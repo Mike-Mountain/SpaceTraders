@@ -1,4 +1,4 @@
-@import "../mixins/outlines.mixin";
+@import "outlines.mixin";
 
 .card-primary {
   @include border(primary);

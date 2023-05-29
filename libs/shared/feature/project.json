@@ -2,8 +2,8 @@
   "name": "shared-feature",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/shared/feature/src",
-  "prefix": "space-trader",
-  "tags": [],
+  "prefix": "shared-features",
+  "tags": ["scope:shared", "type:feature"],
   "projectType": "library",
   "targets": {
     "test": {
