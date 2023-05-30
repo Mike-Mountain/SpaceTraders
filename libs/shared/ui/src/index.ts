@@ -1,2 +1,2 @@
-export * from './components';
-export * from './animations';
+export * from './lib/components';
+export * from './lib/animations';
