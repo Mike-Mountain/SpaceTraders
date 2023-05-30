@@ -6,6 +6,8 @@
     (sidebar)="updateState()"
   ></shared-ui-navbar>
   <aside class="sidebar" [@openClose]="sidebarState">
-    <shared-ui-sidebar></shared-ui-sidebar>
+    <shared-ui-sidebar
+      (toggle)="updateState()"
+    ></shared-ui-sidebar>
   </aside>
 </section>
