@@ -1,0 +1,28 @@
+<section class="authentication">
+  <div class="card auth-card card-primary">
+    <div class="card-content">
+      <h2 class="text-center">Sign Up</h2>
+      <form [formGroup]="form">
+        <div class="field">
+          <label class="label">CallSign</label>
+          <div class="control">
+            <input class="input" type="text" formControlName="callSign">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Faction</label>
+          <div class="select w-100">
+            <select formControlName="faction" class="w-100">
+              <ng-container *ngFor="let faction of factions">
+                <option>{{faction}}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+
+        <button class="button is-primary w-80" (click)="signup()">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</section>

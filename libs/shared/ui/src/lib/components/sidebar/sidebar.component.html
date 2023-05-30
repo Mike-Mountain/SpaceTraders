@@ -1,11 +1,11 @@
 <aside class="menu">
   <ul class="menu-list">
-    <li><a (click)="toggleSidebar()">Home</a></li>
-    <li><a (click)="toggleSidebar()">Dashboard</a></li>
+    <li (click)="toggleSidebar()"><a [routerLink]="NavigationRoutes.HOME">Home</a></li>
+    <li (click)="toggleSidebar()"><a>Dashboard</a></li>
   </ul>
   <hr class="dropdown-divider w-80 mx-auto">
   <ul class="menu-list">
-    <li><a (click)="toggleSidebar()">Sign In</a></li>
-    <li><a (click)="toggleSidebar()">Sign Up</a></li>
+    <li (click)="toggleSidebar()"><a>Sign In</a></li>
+    <li (click)="toggleSidebar()"><a [routerLink]="NavigationRoutes.AUTHENTICATION">Sign Up</a></li>
   </ul>
 </aside>
