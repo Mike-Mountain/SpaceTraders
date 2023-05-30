@@ -1,1 +1,11 @@
-<p>layout works!</p>
+<section class="layout">
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+  <shared-ui-navbar
+    (sidebar)="updateState()"
+  ></shared-ui-navbar>
+  <aside class="sidebar" [@openClose]="sidebarState">
+    <shared-ui-sidebar></shared-ui-sidebar>
+  </aside>
+</section>
