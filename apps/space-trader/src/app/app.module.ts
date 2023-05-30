@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { LayoutUiModule } from '@space-trader/layout/ui';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpInterceptor } from '@space-trader/shared/data-access';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,13 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     LayoutUiModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
