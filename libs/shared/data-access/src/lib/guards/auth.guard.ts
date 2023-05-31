@@ -19,6 +19,7 @@ export const authGuard = (): Observable<boolean> => {
       throw new Error('Token not set, please log in!');
     }
   }
+  console.log(userState.getHasCache());
   if (userState.getHasCache()) {
     user$ = userState.getUserDetails();
   } else {
@@ -27,6 +28,7 @@ export const authGuard = (): Observable<boolean> => {
 
   return user$.pipe(
     switchMap((user) => {
+      console.log(user);
       return user.token ? of(true) : of(false);
     })
   );

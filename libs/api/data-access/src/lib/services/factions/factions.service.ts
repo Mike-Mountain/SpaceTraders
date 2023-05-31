@@ -20,7 +20,7 @@ export class FactionsService {
       return this.factions.asObservable();
     } else {
       return this.http
-        .get<ApiResponse<Faction[]>>(this.endpointService.endpoints.gameApiUrl)
+        .get<ApiResponse<Faction[]>>(this.endpointService.endpoints.factions)
         .pipe(
           map((factions: ApiResponse<Faction[]>) => factions.data),
           tap((factions: Faction[]) => this.factions.next(factions))

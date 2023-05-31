@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, tap, zip } from 'rxjs';
+import {BehaviorSubject, map, Observable, take, tap, zip} from 'rxjs';
 import { Agent, User } from '../../models/interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
 import { Contract, Faction, Ship } from '../../models';
@@ -24,7 +24,7 @@ export class UserState {
   }
 
   getUserDetails(): Observable<User> {
-    return this._userSrc.asObservable();
+    return this._userSrc.asObservable().pipe(take(1));
   }
 
   getToken(): string {

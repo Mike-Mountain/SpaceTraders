@@ -18,8 +18,9 @@ export class HttpInterceptor implements HttpInterceptor {
     return userState.getUserDetails().pipe(
       switchMap((user) => {
         let headers = new HttpHeaders();
-        headers = headers.append('AUTHORIZATION', `Bearer ${user.token}`);
-        const req = request.clone({ headers });
+        if (user.token) {
+          headers = headers.append('AUTHORIZATION', `Bearer ${user.token}`);
+        }
         return next.handle(request.clone({ headers }));
       })
     );
