@@ -27,7 +27,8 @@ export class SignUpComponent {
 
   getFactions() {
     this.factionsService.getAllFactions().subscribe((factions: any) => {
-      this.factions = factions.data.map((faction: any) => faction.symbol);
+      this.factions = factions.map((faction: any) => faction.symbol);
+      console.log(factions);
     });
   }
 

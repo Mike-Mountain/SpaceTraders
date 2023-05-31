@@ -1,0 +1,7 @@
+<section class="home">
+  <ng-container *ngFor="let faction of factions$ | async">
+    <shared-ui-faction-card
+      [faction]="faction"
+    ></shared-ui-faction-card>
+  </ng-container>
+</section>

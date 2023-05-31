@@ -1,0 +1,9 @@
+<div
+  class="card my-4 mx-3"
+  [class.card-success]="faction.isRecruiting"
+  [class.card-warn]="!faction.isRecruiting"
+>
+  <div class="card-content">
+    <h2 class="text-center">{{faction.name}}</h2>
+  </div>
+</div>
