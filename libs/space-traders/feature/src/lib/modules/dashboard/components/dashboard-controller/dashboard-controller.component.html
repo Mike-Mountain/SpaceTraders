@@ -1,0 +1,7 @@
+<section class="dashboard-controller">
+  <div class="card card-primary-bg" *ngIf="user$ | async as user">
+    <div class="card-content">
+      <h2 class="text-center has-text-light">{{user.agent.symbol}}</h2>
+    </div>
+  </div>
+</section>

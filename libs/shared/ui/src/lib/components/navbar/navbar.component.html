@@ -1,11 +1,18 @@
 <nav class="navbar is-primary border-radius-8" role="navigation" aria-label="main navigation">
   <div class="navbar-brand flex-between">
     <div class="flex-start">
-      <a class="navbar-item has-text-light" [routerLink]="NavigationRoutes.HOME">
-        Home
-      </a>
+
+      <ng-container *ngIf="isLoggedIn">
+        <a class="navbar-item has-text-light" [routerLink]="NavigationRoutes.DASHBOARD">
+          Dashboard
+        </a>
+      </ng-container>
 
       <ng-container *ngIf="!isLoggedIn">
+        <a class="navbar-item has-text-light" [routerLink]="NavigationRoutes.HOME">
+          Home
+        </a>
+
         <a class="navbar-item has-text-light">
           Sign in
         </a>

@@ -19,11 +19,12 @@ export class FactionsService {
     if (this.factions.value.length > 0) {
       return this.factions.asObservable();
     } else {
-      const url = `${this.endpointService.endpoints.gameApiUrl}/${this.endpointService.endpoints.factions}?limit=20`;
-      return this.http.get<ApiResponse<Faction[]>>(url).pipe(
-        map((factions: ApiResponse<Faction[]>) => factions.data),
-        tap((factions: Faction[]) => this.factions.next(factions))
-      );
+      return this.http
+        .get<ApiResponse<Faction[]>>(this.endpointService.endpoints.gameApiUrl)
+        .pipe(
+          map((factions: ApiResponse<Faction[]>) => factions.data),
+          tap((factions: Faction[]) => this.factions.next(factions))
+        );
     }
   }
 }

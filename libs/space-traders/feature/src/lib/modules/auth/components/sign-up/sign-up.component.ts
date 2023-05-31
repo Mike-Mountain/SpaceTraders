@@ -37,6 +37,7 @@ export class SignUpComponent {
     const { callSign, faction } = this.form.value;
     this.authService.register(callSign, faction).subscribe((data: any) => {
       this.userState.setUserDetails(data);
+      localStorage.setItem('token', data.token);
     });
   }
 

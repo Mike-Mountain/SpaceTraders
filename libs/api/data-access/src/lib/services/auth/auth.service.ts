@@ -16,10 +16,9 @@ export class AuthService {
   ) {}
 
   public register(callSign: string, faction: string) {
-    const url = `${this.endpointService.endpoints.gameApiUrl}/${this.endpointService.endpoints.auth}`;
     const data: RegistrationBody = { symbol: callSign, faction };
     return this.http
-      .post<ApiResponse<User>>(url, data)
+      .post<ApiResponse<User>>(this.endpointService.endpoints.auth, data)
       .pipe(map((response) => response.data));
   }
 }

@@ -6,7 +6,7 @@ export interface User {
   token: string;
   agent: Agent;
   contract: Contract;
-  faction: Faction;
+  faction: FactionSummary;
   ship: Ship;
 }
 
@@ -16,6 +16,11 @@ export interface Agent {
   headquarters: string;
   credits: number;
   startingFaction: string;
+}
+
+export interface FactionSummary {
+  symbol: string;
+  reputation: string;
 }
 
 export interface RegistrationDetails {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { openCloseAnimation } from '@spaceTrader/shared/ui';
-import { UserState } from '@space-trader/shared/data-access';
+import { User, UserState } from '@space-trader/shared/data-access';
 import { map, Observable } from 'rxjs';
 
 @Component({
@@ -16,7 +16,7 @@ export class LayoutComponent {
   constructor(private userState: UserState) {
     this.isLoggedIn$ = userState
       .getUserDetails()
-      .pipe(map((user: any) => user.token));
+      .pipe(map((user: User) => !!user.token));
   }
 
   updateState() {
