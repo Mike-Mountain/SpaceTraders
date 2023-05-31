@@ -5,7 +5,9 @@
   </ul>
   <hr class="dropdown-divider w-80 mx-auto">
   <ul class="menu-list">
-    <li (click)="toggleSidebar()"><a>Sign In</a></li>
-    <li (click)="toggleSidebar()"><a [routerLink]="NavigationRoutes.AUTHENTICATION">Sign Up</a></li>
+    <ng-container *ngIf="!isLoggedIn">
+      <li (click)="toggleSidebar()"><a>Sign In</a></li>
+      <li (click)="toggleSidebar()"><a [routerLink]="NavigationRoutes.AUTHENTICATION">Sign Up</a></li>
+    </ng-container>
   </ul>
 </aside>

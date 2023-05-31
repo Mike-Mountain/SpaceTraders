@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../../../../../../../api/data-access/src/lib/services/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FactionsService } from '../../../../../../../../api/data-access/src/lib/services';
+import { FactionsService, AuthService } from '@space-trader/api/data-access';
+import { UserState } from '@space-trader/shared/data-access';
 
 @Component({
   selector: 'feature-sign-up',
@@ -10,13 +10,15 @@ import { FactionsService } from '../../../../../../../../api/data-access/src/lib
 })
 export class SignUpComponent {
   form: FormGroup;
-
   factions: string[] = [];
+  selectedFaction: string | undefined;
+  isFactionSelect = true;
 
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private factionsService: FactionsService
+    private factionsService: FactionsService,
+    private userState: UserState
   ) {
     this.getFactions();
     this.form = formBuilder.group({
@@ -28,14 +30,19 @@ export class SignUpComponent {
   getFactions() {
     this.factionsService.getAllFactions().subscribe((factions: any) => {
       this.factions = factions.map((faction: any) => faction.symbol);
-      console.log(factions);
     });
   }
 
   signup() {
     const { callSign, faction } = this.form.value;
-    this.authService.register(callSign, faction).subscribe((data) => {
-      console.log(data);
+    this.authService.register(callSign, faction).subscribe((data: any) => {
+      this.userState.setUserDetails(data);
     });
+  }
+
+  selectFaction(faction: string) {
+    this.selectedFaction = faction;
+    this.form?.controls['faction'].patchValue(faction);
+    this.isFactionSelect = false;
   }
 }

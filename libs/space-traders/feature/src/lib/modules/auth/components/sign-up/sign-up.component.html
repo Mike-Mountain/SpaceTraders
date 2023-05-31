@@ -1,28 +1,42 @@
 <section class="authentication">
   <div class="card auth-card card-primary">
     <div class="card-content">
-      <h2 class="text-center">Sign Up</h2>
-      <form [formGroup]="form">
-        <div class="field">
-          <label class="label">CallSign</label>
-          <div class="control">
-            <input class="input" type="text" formControlName="callSign">
-          </div>
-        </div>
+      <h1 class="text-center">Sign Up</h1>
 
-        <div class="field">
-          <label class="label">Faction</label>
-          <div class="select w-100">
-            <select formControlName="faction" class="w-100">
-              <ng-container *ngFor="let faction of factions">
-                <option>{{faction}}</option>
-              </ng-container>
-            </select>
+      <div class="flex-center">
+        <form [formGroup]="form" class="w-100">
+          <div class="field">
+            <label class="label">CallSign</label>
+            <div class="control">
+              <input class="input" type="text" formControlName="callSign">
+            </div>
           </div>
-        </div>
 
-        <button class="button is-primary w-80 mx-auto" (click)="signup()">Sign Up</button>
-      </form>
+          <ng-container *ngIf="isFactionSelect">
+            <shared-ui-faction-list
+              (selected)="selectFaction($event)"
+            ></shared-ui-faction-list>
+          </ng-container>
+
+          <ng-container *ngIf="!isFactionSelect">
+            <div class="field">
+              <label class="label">Faction</label>
+              <div class="select w-100">
+                <select formControlName="faction" class="w-100">
+                  <ng-container *ngFor="let faction of factions">
+                    <option [selected]="faction === selectedFaction">{{faction}}</option>
+                  </ng-container>
+                </select>
+              </div>
+            </div>
+          </ng-container>
+        </form>
+      </div>
+
+      <div class="w-80 flex-between mx-auto mt-3" *ngIf="!isFactionSelect">
+        <button class="button is-light" (click)="isFactionSelect = true">Back</button>
+        <button class="button is-primary" (click)="signup()">Sign Up</button>
+      </div>
     </div>
   </div>
 </section>

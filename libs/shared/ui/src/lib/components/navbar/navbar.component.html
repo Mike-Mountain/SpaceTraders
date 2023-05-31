@@ -5,13 +5,15 @@
         Home
       </a>
 
-      <a class="navbar-item has-text-light">
-        Sign in
-      </a>
+      <ng-container *ngIf="!isLoggedIn">
+        <a class="navbar-item has-text-light">
+          Sign in
+        </a>
 
-      <a class="navbar-item has-text-light" [routerLink]="NavigationRoutes.AUTHENTICATION">
-        Sign up
-      </a>
+        <a class="navbar-item has-text-light" [routerLink]="NavigationRoutes.AUTHENTICATION">
+          Sign up
+        </a>
+      </ng-container>
     </div>
     <div class="flex-end">
       <a role="button" class="navbar-burger" (click)="toggleSidebar()">
