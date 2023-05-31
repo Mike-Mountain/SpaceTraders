@@ -1,5 +1,5 @@
 import {Route} from '@angular/router';
-import {NavigationRoutes} from '@space-trader/shared/data-access';
+import {authGuard,NavigationRoutes} from '@space-trader/shared/data-access';
 import {HomeComponent, SignUpComponent} from '@space-trader/space-traders/feature';
 
 export const appRoutes: Route[] = [
