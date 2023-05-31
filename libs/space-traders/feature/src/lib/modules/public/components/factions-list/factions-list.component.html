@@ -1,0 +1,15 @@
+<section class="factions-list">
+  <h1 class="text-center" *ngIf="isRegister">Choose a faction</h1>
+  <h1 class="text-center" *ngIf="!isRegister">Factions</h1>
+
+  <div class="flex flex-wrap" *ngIf="factions$ | async as factions">
+    <ng-container *ngFor="let faction of factions">
+      <shared-ui-faction-card
+        [faction]="faction"
+        [selected]="selectedFaction"
+        [isRegistration]="isRegister"
+        (selectFaction)="selectedFaction = $event"
+      ></shared-ui-faction-card>
+    </ng-container>
+  </div>
+</section>

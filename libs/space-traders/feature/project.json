@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/space-traders/feature/src",
   "prefix": "feature",
-  "tags": [],
+  "tags": ["scope:app", "type:space-traders"],
   "projectType": "library",
   "targets": {
     "test": {

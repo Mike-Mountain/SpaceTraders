@@ -1,7 +1,10 @@
 <section class="home">
-  <ng-container *ngFor="let faction of factions$ | async">
-    <shared-ui-faction-card
-      [faction]="faction"
-    ></shared-ui-faction-card>
-  </ng-container>
+  <div class="card card-primary">
+    <div class="card-header">
+      <h1 class="card-header-title">Factions</h1>
+    </div>
+    <div class="card-content">
+      <a class="button is-primary" [routerLink]="'/' + NavigationRoutes.FACTIONS">View factions</a>
+    </div>
+  </div>
 </section>

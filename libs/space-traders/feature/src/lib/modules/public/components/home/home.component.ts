@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
-import {FactionsService} from "@space-trader/api/data-access";
-import {Observable} from "rxjs";
+import { Component } from '@angular/core';
+import { NavigationRoutes } from '@space-trader/shared/data-access';
 
 @Component({
   selector: 'feature-home',
@@ -8,11 +7,5 @@ import {Observable} from "rxjs";
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-
-  factions$: Observable<any>;
-
-  constructor(private factionsService: FactionsService) {
-    this.factions$ = factionsService.getAllFactions();
-    this.factions$.subscribe((factions) => console.log(factions));
-  }
+  protected readonly NavigationRoutes = NavigationRoutes;
 }

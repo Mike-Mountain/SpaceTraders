@@ -5,6 +5,7 @@ export interface Faction {
   name: string;
   symbol: string;
   traits: FactionTrait[];
+  initials?: string;
 }
 
 export interface FactionTrait {
