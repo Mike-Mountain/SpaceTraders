@@ -3,12 +3,11 @@
     <ng-content></ng-content>
   </div>
   <shared-ui-navbar
-    [isLoggedIn]="isLoggedIn$ | async"
+    [agent]="(agent | async)!"
     (sidebar)="updateState()"
   ></shared-ui-navbar>
   <aside class="sidebar" [@openClose]="sidebarState">
     <shared-ui-sidebar
-      [isLoggedIn]="isLoggedIn$ | async"
       (toggle)="updateState()"
     ></shared-ui-sidebar>
   </aside>

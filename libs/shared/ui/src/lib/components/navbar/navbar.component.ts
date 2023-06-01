@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { NavigationRoutes } from '@space-trader/shared/data-access';
+import { Agent, NavigationRoutes } from '@space-trader/shared/data-access';
 
 @Component({
   selector: 'shared-ui-navbar',
@@ -11,7 +11,7 @@ import { NavigationRoutes } from '@space-trader/shared/data-access';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  @Input() isLoggedIn: boolean | null = false;
+  @Input() agent!: Agent;
   @Output() sidebar = new EventEmitter<boolean>();
   protected readonly NavigationRoutes = NavigationRoutes;
 

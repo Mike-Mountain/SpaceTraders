@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { openCloseAnimation } from '@spaceTrader/shared/ui';
-import { User, UserState } from '@space-trader/shared/data-access';
+import { Agent, User, UserState } from '@space-trader/shared/data-access';
 import { map, Observable } from 'rxjs';
 
 @Component({
@@ -11,12 +11,10 @@ import { map, Observable } from 'rxjs';
 })
 export class LayoutComponent {
   sidebarState: 'open' | 'closed' = 'closed';
-  isLoggedIn$: Observable<boolean>;
+  agent: Observable<Agent>;
 
   constructor(private userState: UserState) {
-    this.isLoggedIn$ = userState
-      .getUserDetails()
-      .pipe(map((user: User) => !!user.token));
+    this.agent = userState.getUserDetails().pipe(map((user) => user.agent));
   }
 
   updateState() {

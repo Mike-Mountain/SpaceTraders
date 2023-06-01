@@ -1,19 +1,17 @@
 import { RegistrationDetails } from './user.interface';
 
 export interface Ship {
-  ship: {
-    symbol: string;
-    nav: ShipNavigation;
-    crew: ShipCrew;
-    fuel: ShipFuel;
-    frame: ShipFrame;
-    reactor: ShipReactor;
-    engine: ShipEngine;
-    modules: ShipModule[];
-    mounts: ShipMount[];
-    registration: RegistrationDetails;
-    cargo: ShipCargo;
-  };
+  symbol: string;
+  nav: ShipNavigation;
+  crew: ShipCrew;
+  fuel: ShipFuel;
+  frame: ShipFrame;
+  reactor: ShipReactor;
+  engine: ShipEngine;
+  modules: ShipModule[];
+  mounts: ShipMount[];
+  registration: RegistrationDetails;
+  cargo: ShipCargo;
 }
 
 export interface ShipNavigation {

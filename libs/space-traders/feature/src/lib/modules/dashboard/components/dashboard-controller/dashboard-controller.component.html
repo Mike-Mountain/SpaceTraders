@@ -1,15 +1,49 @@
 <section class="dashboard-controller" *ngIf="user$ | async as user">
-  <div class="card card-info">
+  <div class="card card-primary mb-4">
+    <div class="card-header">
+      <h1 class="card-header-title has-text-primary">Ships</h1>
+    </div>
     <div class="card-content">
-      <h2 class="text-center has-text-info">Welcome {{user.agent.symbol}}</h2>
-      <button class="button is-info is-outlined w-100">View Agent Details</button>
+      <div class="card card-info">
+        <div class="card-content">
+          <div class="flex-between">
+            <div class="flex flex-column flex-align-start">
+              <h3 class="has-text-weight-bold">{{user.ship.frame.name}}</h3>
+              <p class="m-0">{{user.ship.nav | shipLocationString}}</p>
+            </div>
+
+            <div class="flex flex-column flex-align-end">
+              <p class="m-0">{{user.ship.engine.condition}}/100</p>
+              <p class="m-0">{{user.ship.fuel.current}}/{{user.ship.fuel.capacity}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="card card-info">
+
+  <div class="card card-primary mt-4">
+    <div class="card-header">
+      <h1 class="card-header-title has-text-primary">Contracts</h1>
+    </div>
     <div class="card-content">
-      <h2 class="text-center has-text-info">Contract: {{user.contract.type}}</h2>
-      <button class="button is-info is-outlined w-100">View Agent Details</button>
+      <h3 class="mb-2">Offered:</h3>
+      <div class="card card-info">
+        <div class="card-content">
+          <div class="flex-between">
+            <div class="flex flex-column flex-align-start">
+              <h3 class="has-text-weight-bold">{{user.contract.type}}</h3>
+              <small class="m-0">{{user.contract | contractDescription}}</small>
+            </div>
+
+            <div class="flex flex-column flex-align-end">
+              <p class="m-0">{{user.contract.factionSymbol}}</p>
+              <p class="m-0">{{(user.contract.terms.payment.onAccepted + user.contract.terms.payment.onAccepted) | currency : '$'}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

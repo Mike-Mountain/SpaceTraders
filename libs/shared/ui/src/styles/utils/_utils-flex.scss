@@ -33,97 +33,97 @@
 }
 
 .flex-align-start {
-  align-items: flex-start;
+  align-items: flex-start !important;
 }
 
 .flex-align-end {
-  align-items: flex-end;
+  align-items: flex-end !important;
 }
 
 .flex-align-center {
-  align-items: center;
+  align-items: center !important;
 }
 
 .flex-justify-start {
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 }
 
 .flex-justify-end {
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }
 
 .flex-justify-center {
-  justify-content: center;
+  justify-content: center !important;
 }
 
 .flex-justify-around {
-  justify-content: space-around;
+  justify-content: space-around !important;
 }
 
 .flex-justify-between {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .flex-justify-evenly {
-  justify-content: space-evenly;
+  justify-content: space-evenly !important;
 }
 
 .flex-column {
-  flex-direction: column;
+  flex-direction: column !important;
 }
 
 .flex-row {
-  flex-direction: row;
+  flex-direction: row !important;
 }
 
 .flex-wrap {
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
 }
 
 .flex-no-wrap {
-  flex-wrap: nowrap;
+  flex-wrap: nowrap !important;
 }
 
 .flex-wrap-reverse {
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse !important;
 }
 
 .flex-stretch {
-  flex: 1 1 auto;
+  flex: 1 1 auto !important;
 }
 
 .flex-row-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
 }
 
 .flex-column-container {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-basis: 100% !important;
+  flex: 1 !important;
 }
 
 .flex-min-width-200 {
-  min-width: 200px;
+  min-width: 200px !important;
 }
 
 .flex-grow-1 {
-  flex-grow: 1;
+  flex-grow: 1 !important;
 }
 
 .flex-grow-2 {
-  flex-grow: 2;
+  flex-grow: 2 !important;
 }
 
 .flex-basis {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0px;
+  flex-grow: 1 !important;
+  flex-shrink: 1 !important;
+  flex-basis: 0px !important;
 }
 
 .flex-1 {
-  flex: 1;
+  flex: 1 !important;
 }

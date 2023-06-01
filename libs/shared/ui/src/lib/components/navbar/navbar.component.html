@@ -2,25 +2,12 @@
   <div class="navbar-brand flex-between">
     <div class="flex-start">
 
-      <ng-container *ngIf="isLoggedIn">
-        <a class="navbar-item has-text-light" [routerLink]="NavigationRoutes.DASHBOARD">
-          Dashboard
+      <div class="agent-info">
+        <a class="navbar-item has-text-light flex-column flex-align-start" [routerLink]="NavigationRoutes.DASHBOARD">
+          {{agent.symbol}}
+          <small>{{agent.credits | currency : '$'}}</small>
         </a>
-      </ng-container>
-
-      <ng-container *ngIf="!isLoggedIn">
-        <a class="navbar-item has-text-light" [routerLink]="NavigationRoutes.HOME">
-          Home
-        </a>
-
-        <a class="navbar-item has-text-light">
-          Sign in
-        </a>
-
-        <a class="navbar-item has-text-light" [routerLink]="NavigationRoutes.AUTHENTICATION">
-          Sign up
-        </a>
-      </ng-container>
+      </div>
     </div>
     <div class="flex-end">
       <a role="button" class="navbar-burger" (click)="toggleSidebar()">

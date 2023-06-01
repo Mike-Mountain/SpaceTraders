@@ -1,5 +1,9 @@
 @import "../mixins/outlines.mixin";
 
+.card-content {
+  padding: .75rem !important;
+}
+
 .card-primary {
   @include border(primary);
   @include box-shadow(primary);
