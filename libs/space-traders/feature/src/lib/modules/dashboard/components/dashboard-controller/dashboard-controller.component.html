@@ -1,7 +1,14 @@
-<section class="dashboard-controller">
-  <div class="card card-info" *ngIf="user$ | async as user">
+<section class="dashboard-controller" *ngIf="user$ | async as user">
+  <div class="card card-info">
     <div class="card-content">
       <h2 class="text-center has-text-info">Welcome {{user.agent.symbol}}</h2>
+      <button class="button is-info is-outlined w-100">View Agent Details</button>
+    </div>
+  </div>
+
+  <div class="card card-info">
+    <div class="card-content">
+      <h2 class="text-center has-text-info">Contract: {{user.contract.type}}</h2>
       <button class="button is-info is-outlined w-100">View Agent Details</button>
     </div>
   </div>
