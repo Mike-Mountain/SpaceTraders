@@ -44,7 +44,14 @@
           "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "assets": [
+            {
+              "glob": "**/*",
+              "input": "./libs/shared/ui/src/assets/",
+              "output": "./assets"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"
