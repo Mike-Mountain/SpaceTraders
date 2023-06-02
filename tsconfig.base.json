@@ -26,6 +26,7 @@
       "@space-trader/space-traders/feature": [
         "libs/space-traders/feature/src/index.ts"
       ],
+      "@space-trader/space-traders/system": ["libs/space-traders/feature/src/lib/modules/system"],
       "@spaceTrader/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },

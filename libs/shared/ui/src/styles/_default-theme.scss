@@ -3,10 +3,18 @@
 
 .theme-dark {
   $body-background-color: $dark;
+  $card-background-color: $grey-darker;
   $text: $light;
+  --body-background-color: #{$dark};
+  --card-background-color: #{$grey-darker};
+  --text: #{$light};
 }
 
 .theme-light {
   $body-background-color: $light;
+  $card-background-color: $white-ter;
   $text: $dark;
+  --body-background-color: #{$light};
+  --card-background-color: #{$white-ter};
+  --text: #{$dark};
 }

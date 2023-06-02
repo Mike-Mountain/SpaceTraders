@@ -1,81 +1,151 @@
 @import "../mixins/outlines.mixin";
 
+.card {
+  background: var(--card-background-color) !important;
+}
+
+.card:not(
+  .card-primary,
+  .card-primary-bg,
+  .card-info,
+  .card-info-bg,
+  .card-success,
+  .card-success-bg,
+  .card-warn,
+  .card-warn-bg,
+  .card-danger,
+  .card-danger-bg,
+  .card-light,
+  .card-light-bg,
+  .card-dark,
+  .card-dark-bg
+) .card-header-title {
+  color: var(--text) !important;
+}
+
 .card-content {
   padding: .75rem !important;
+  color: var(--text) !important;
+
+  h1, h2, h3, h4, h5, h6, p, a {
+    color: var(--text) !important;
+  }
 }
 
 .card-primary {
+  .card-header-title {
+    color: var(--primary);
+  }
   @include border(primary);
   @include box-shadow(primary);
 }
 
 .card-info {
+  .card-header-title {
+    color: var(--info);
+  }
   @include border(info);
   @include box-shadow(info);
 }
 
 .card-success {
+  .card-header-title {
+    color: var(--success);
+  }
   @include border(success);
   @include box-shadow(success);
 }
 
 .card-warn {
+  .card-header-title {
+    color: var(--warning);
+  }
   @include border(warning);
   @include box-shadow(warning);
 }
 
 .card-danger {
+  .card-header-title {
+    color: var(--danger);
+  }
   @include border(danger);
   @include box-shadow(danger);
 }
 
 .card-light {
+  .card-header-title {
+    color: var(--light);
+  }
   @include border(light);
   @include box-shadow(light);
 }
 
 .card-dark {
+  .card-header-title {
+    color: var(--dark);
+  }
   @include border(dark);
   @include box-shadow(dark);
 }
 
 .card-primary-bg {
+  .card-header-title {
+    color: var(--primary);
+  }
   @include border(primary);
   @include box-shadow(primary);
   @include background(primary);
 }
 
 .card-info-bg {
+  .card-header-title {
+    color: var(--info);
+  }
   @include border(info);
   @include box-shadow(info);
   @include background(info);
 }
 
 .card-success-bg {
+  .card-header-title {
+    color: var(--success);
+  }
   @include border(success);
   @include box-shadow(success);
   @include background(success);
 }
 
 .card-warn-bg {
+  .card-header-title {
+    color: var(--warning);
+  }
   @include border(warning);
   @include box-shadow(warning);
   @include background(warning);
 }
 
 .card-danger-bg {
+  .card-header-title {
+    color: var(--danger);
+  }
   @include border(danger);
   @include box-shadow(danger);
   @include background(danger);
 }
 
 .card-light-bg {
+  .card-header-title {
+    color: var(--light);
+  }
   @include border(light);
   @include box-shadow(light);
   @include background(light);
 }
 
 .card-dark-bg {
+  .card-header-title {
+    color: var(--dark);
+  }
   @include border(dark);
   @include box-shadow(dark);
   @include background(dark);
