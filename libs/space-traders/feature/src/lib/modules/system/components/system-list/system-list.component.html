@@ -1,12 +1,19 @@
 <section class="system-list" *ngIf="systems$ | async as systems">
   <ng-container *ngFor="let system of systems">
-    <div class="card card-info">
-      <div class="card-header">
-        <img src="assets/planets/Sun.png" alt="" width="50" height="auto">
-        <h1 class="card-header-title">{{system.symbol}}</h1>
+    <div class="card card-info my-5">
+      <div class="card-header flex">
+        <div class="flex-between w-75">
+          <img [ngSrc]="system.type | getPlanetImage" alt="" width="66" height="50">
+          <h1 class="card-header-title">{{system.symbol}}</h1>
+        </div>
+        <div class="flex-end w-25">
+          <small class="text-right has-text-light mr-2">{{system.type}}</small>
+        </div>
       </div>
-      <div class="card-content">
-
+      <div class="card-content flex-center flex-wrap">
+        <ng-container *ngFor="let waypoint of system.waypoints">
+          <img [ngSrc]="waypoint.type | getPlanetImage" alt="" width="33" height="25" class="planet-image">
+        </ng-container>
       </div>
     </div>
   </ng-container>

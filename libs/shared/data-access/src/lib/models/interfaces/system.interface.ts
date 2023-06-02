@@ -1,7 +1,9 @@
+import { PlanetTypes } from '../enums/planet-type.enum';
+
 export interface System {
   symbol: string;
   sectorSymbol: string;
-  type: string;
+  type: PlanetTypes;
   x: number;
   y: number;
   factions: string[];
@@ -10,7 +12,7 @@ export interface System {
 
 export interface SystemWaypoint {
   symbol: string;
-  type: string;
+  type: PlanetTypes;
   x: number;
   y: number;
 }
