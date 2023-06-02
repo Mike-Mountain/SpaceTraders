@@ -3,4 +3,6 @@ export enum NavigationRoutes {
   DASHBOARD = 'dashboard',
   AUTHENTICATION = 'auth',
   FACTIONS = 'factions',
+  SYSTEM = 'system',
+  SYSTEMLIST = 'system-list'
 }

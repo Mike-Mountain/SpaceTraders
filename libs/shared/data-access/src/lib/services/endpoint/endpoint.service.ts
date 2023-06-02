@@ -17,6 +17,7 @@ export class EndpointService {
       agent: `${this.baseGameApi}/my/agent`,
       contracts: `${this.baseGameApi}/my/contracts`,
       ships: `${this.baseGameApi}/my/ships`,
+      systems: `${this.baseGameApi}/systems`
     };
   }
 }

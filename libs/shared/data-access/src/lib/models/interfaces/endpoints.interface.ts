@@ -6,4 +6,5 @@ export interface Endpoints {
   ships: string;
   agent: string;
   contracts: string;
+  systems: string;
 }

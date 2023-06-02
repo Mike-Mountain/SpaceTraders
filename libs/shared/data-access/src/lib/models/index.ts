@@ -5,3 +5,4 @@ export * from './interfaces/factions.interface';
 export * from './interfaces/ship.interface';
 export * from './interfaces/contracts.interface';
 export * from './interfaces/user.interface';
+export * from './interfaces/system.interface';
