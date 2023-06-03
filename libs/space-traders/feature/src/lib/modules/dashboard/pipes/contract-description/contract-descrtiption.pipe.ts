@@ -11,9 +11,7 @@ export class ContractDescriptionPipe implements PipeTransform {
       contractString += 'Deliver ';
     }
     contractString += contract.terms.deliver[0].tradeSymbol;
-    contractString += ' to ';
-    contractString += contract.terms.deliver[0].destinationSymbol;
-
+    console.log(contractString);
     return contractString;
   }
 }

@@ -1,0 +1,41 @@
+<div class="card card-info" *ngIf="contractDetails | async as contract">
+  <ng-container *ngIf="contract">
+    <div class="card-header flex-column">
+      <h1 class="card-header-title pb-0">{{contract.type}}</h1>
+      <h4 class="card-header-title pt-0 mb-0">{{contract | contractDescription}}</h4>
+    </div>
+    <div class="card-image"></div>
+    <div class="card-content">
+      <div class="flex-between w-100">
+        <h4>{{contract.factionSymbol}}</h4>
+        <h4 [style]="contract.accepted ? {color: 'var(--success)'} : {color: 'var(--danger) !important'}">
+          {{contract.accepted ? 'Accepted' : 'Not Accepted'}}
+        </h4>
+      </div>
+      <h4 class="text-center">
+        You must deliver {{contract.terms.deliver[0].unitsRequired}} units of {{contract.terms.deliver[0].tradeSymbol}}
+        to waypoint {{contract.terms.deliver[0].destinationSymbol}} by {{contract.terms.deadline | date : 'h:mm a'}}
+        on {{contract.terms.deadline | date : 'MMMM d'}}.
+      </h4>
+      <h4 class="text-center">
+        You will receive <span class="has-text-info">{{contract.terms.payment.onAccepted | currency}}</span> on
+        acceptance of this contract, and a further <span
+        class="has-text-info">{{contract.terms.payment.onFulfilled | currency}}</span> when the contract is fulfilled
+      </h4>
+      <ng-container *ngIf="!(contract.expiration | contractExpired)">
+        <div class="flex-column flex-center">
+          <h6 class="text-center">
+            This contract must be accepted before <span class="has-text-warning">{{contract.deadlineToAccept | date : 'h:mm a'}}
+            on {{contract.deadlineToAccept | date : 'MMMM d'}}</span>
+          </h6>
+          <button class="button is-outlined is-info">Accept Contract</button>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="contract.expiration | contractExpired">
+        <h4 class="text-center has-text-danger">
+          This contract has expired
+        </h4>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

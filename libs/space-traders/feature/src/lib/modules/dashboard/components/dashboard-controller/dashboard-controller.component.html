@@ -1,24 +1,73 @@
 <section class="dashboard-controller" *ngIf="user$ | async as user">
+  <div class="card card-primary mb-4" *ngIf="currentUserLocation$ | async as location">
+    <div class="card-header">
+      <h1 class="card-header-title has-text-primary mb-0">Current Location</h1>
+    </div>
+    <div class="card-content">
+      <div class="flex-start">
+        <img [ngSrc]="location.type | getPlanetImage : location.traits" alt="" width="66" height="50">
+        <h3 class="ml-3">{{location.symbol}}</h3>
+      </div>
+      <ng-container *ngIf="location.traits">
+        <div class="flex-around flex-wrap">
+          <ng-container *ngFor="let trait of location.traits">
+            <div
+              class="tag is-info my-1"
+              [class.is-success]="trait.symbol === 'SHIP_YARD' || trait.symbol === 'MARKETPLACE'"
+            >{{trait.symbol}}</div>
+          </ng-container>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="expandLocation">
+        <ng-container *ngIf="systemWaypoints$ | async as waypoints">
+          <div class="flex-around flex-wrap">
+            <ng-container *ngFor="let waypoint of waypoints">
+              <a
+                class="flex-column flex-center m-2 border-radius-4"
+                [class.has-background-success]="waypoint.traits | hasShipyard"
+                [routerLink]="NavigationRoutes.WAYPOINT + waypoint.symbol"
+              >
+                <img [ngSrc]="waypoint.type | getPlanetImage : waypoint.traits" alt="" width="48" height="37">
+                <div class="tag is-info">{{waypoint.symbol}}</div>
+              </a>
+            </ng-container>
+          </div>
+        </ng-container>
+
+      </ng-container>
+      <div class="flex-center">
+        <button class="icon-button" (click)="expandLocation = !expandLocation">
+          <span class="icon">
+            <ng-container *ngIf="expandLocation">^</ng-container>
+            <ng-container *ngIf="!expandLocation">V</ng-container>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="card card-primary mb-4">
     <div class="card-header">
       <h1 class="card-header-title has-text-primary">Ships</h1>
     </div>
     <div class="card-content">
-      <div class="card card-info">
-        <div class="card-content">
-          <div class="flex-between">
-            <div class="flex flex-column flex-align-start">
-              <h3 class="has-text-weight-bold">{{user.ship.frame.name}}</h3>
-              <p class="m-0">{{user.ship.nav | shipLocationString}}</p>
-            </div>
+      <ng-container *ngFor="let ship of user.ships">
+        <div class="card card-info">
+          <div class="card-content">
+            <div class="flex-between">
+              <div class="flex flex-column flex-align-start">
+                <h3 class="has-text-weight-bold">{{ship.frame.name}}</h3>
+                <p class="m-0">{{ship.nav | shipLocationString}}</p>
+              </div>
 
-            <div class="flex flex-column flex-align-end">
-              <p class="m-0">{{user.ship.engine.condition}}/100</p>
-              <p class="m-0">{{user.ship.fuel.current}}/{{user.ship.fuel.capacity}}</p>
+              <div class="flex flex-column flex-align-end">
+                <p class="m-0">{{ship.engine.condition}}/100</p>
+                <p class="m-0">{{ship.fuel.current}}/{{ship.fuel.capacity}}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 
@@ -28,22 +77,55 @@
       <h1 class="card-header-title has-text-primary">Contracts</h1>
     </div>
     <div class="card-content">
-      <h3 class="mb-2">Offered:</h3>
-      <div class="card card-info">
-        <div class="card-content">
-          <div class="flex-between">
-            <div class="flex flex-column flex-align-start">
-              <h3 class="has-text-weight-bold">{{user.contract.type}}</h3>
-              <small class="m-0">{{user.contract | contractDescription}}</small>
-            </div>
+      <ng-container *ngIf="user.contracts.length > 0; else noContracts">
+        <h3 class="mb-2">Offered:</h3>
+        <ng-container *ngFor="let contract of user.contracts">
+          <a [routerLink]="NavigationRoutes.CONTRACT + contract.id" *ngIf="!contract.accepted">
+            <div class="card card-info">
+              <div class="card-content">
+                <div class="flex-between">
+                  <div class="flex flex-column flex-align-start">
+                    <h3 class="has-text-weight-bold">{{contract.type}}</h3>
+                    <small class="m-0">{{contract | contractDescription}}</small>
+                  </div>
 
-            <div class="flex flex-column flex-align-end">
-              <p class="m-0">{{user.contract.factionSymbol}}</p>
-              <p class="m-0">{{(user.contract.terms.payment.onAccepted + user.contract.terms.payment.onAccepted) | currency : '$'}}</p>
+                  <div class="flex flex-column flex-align-end">
+                    <p class="m-0">{{contract.factionSymbol}}</p>
+                    <p
+                      class="m-0">{{(contract.terms.payment.onAccepted + contract.terms.payment.onAccepted) | currency : '$'}}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </a>
+        </ng-container>
+
+        <h3 class="mb-2">Accepted:</h3>
+        <ng-container *ngFor="let contract of user.contracts">
+          <a [routerLink]="NavigationRoutes.CONTRACT + contract.id" *ngIf="contract.accepted">
+            <div class="card card-success">
+              <div class="card-content">
+                <div class="flex-between">
+                  <div class="flex flex-column flex-align-start">
+                    <h3 class="has-text-weight-bold">{{contract.type}}</h3>
+                    <small class="m-0">{{contract | contractDescription}}</small>
+                  </div>
+
+                  <div class="flex flex-column flex-align-end">
+                    <p class="m-0">{{contract.factionSymbol}}</p>
+                    <p
+                      class="m-0">{{(contract.terms.payment.onAccepted + contract.terms.payment.onAccepted) | currency : '$'}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </ng-container>
+      </ng-container>
     </div>
   </div>
 </section>
+
+<ng-template #noContracts>
+  <h3 class="mb-2 has-text-danger has-text-centered">There are currently no contracts on offer.</h3>
+</ng-template>

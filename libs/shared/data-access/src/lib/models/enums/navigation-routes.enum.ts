@@ -6,4 +6,8 @@ export enum NavigationRoutes {
   FACTIONS = 'factions',
   SYSTEM = 'system',
   SYSTEMLIST = 'system-list',
+  WAYPOINTPATH = 'waypoint/:symbol',
+  WAYPOINT = 'waypoint/',
+  CONTRACTPATH = 'contract/:id',
+  CONTRACT = 'contract/',
 }

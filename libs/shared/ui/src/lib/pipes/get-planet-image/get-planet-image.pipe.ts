@@ -1,21 +1,31 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PlanetTypes } from '@space-trader/shared/data-access';
+import {PlanetTypes, SystemWaypointTrait} from '@space-trader/shared/data-access';
 
 @Pipe({
   name: 'getPlanetImage',
   standalone: true,
 })
 export class GetPlanetImagePipe implements PipeTransform {
-  transform(planetType: PlanetTypes): string {
+  transform(planetType: PlanetTypes, traits?: SystemWaypointTrait[]): string {
     let idx: number;
     let planets: string[];
     switch (planetType) {
       case PlanetTypes.ASTEROID:
         return 'assets/planets/Asteroid.png';
       case PlanetTypes.PLANET:
-        idx = Math.floor(Math.random() * 2);
-        planets = ['WetPlanet.png', 'DryPlanet.png'];
-        return `assets/planets/${planets[idx]}`;
+        if (!traits || traits.length === 0) {
+          idx = Math.floor(Math.random() * 2);
+          planets = ['WetPlanet.png', 'DryPlanet.png'];
+          return `assets/planets/${planets[idx]}`;
+        } else {
+          let isBarren = false;
+          traits.forEach(trait => {
+            if (trait.symbol === 'BARREN') {
+              isBarren = true;
+            }
+          });
+          return 'assets/planets/' + (isBarren ? 'DryPlanet.png' : 'WetPlanet.png')
+        }
       case PlanetTypes.MOON:
         return 'assets/planets/Moon.png';
       case PlanetTypes.GATE:

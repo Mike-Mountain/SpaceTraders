@@ -1,13 +1,12 @@
-import { Faction } from '../interfaces/factions.interface';
 import { Ship } from './ship.interface';
 import { Contract } from './contracts.interface';
 
 export interface User {
   token: string;
   agent: Agent;
-  contract: Contract;
+  contracts: Contract[];
   faction: FactionSummary;
-  ship: Ship;
+  ships: Ship[];
 }
 
 export interface Agent {

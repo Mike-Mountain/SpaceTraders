@@ -1,4 +1,4 @@
-import { PlanetTypes } from '../enums/planet-type.enum';
+import {PlanetTypes} from '../enums/planet-type.enum';
 
 export interface System {
   symbol: string;
@@ -15,4 +15,22 @@ export interface SystemWaypoint {
   type: PlanetTypes;
   x: number;
   y: number;
+  systemSymbol?: string;
+  "orbitals"?: SystemWaypointOrbital[];
+  "traits"?: SystemWaypointTrait[];
+  "faction"?: SystemWaypointFaction
+}
+
+export interface SystemWaypointOrbital {
+  symbol: string;
+}
+
+export interface SystemWaypointFaction {
+  symbol: string;
+}
+
+export interface SystemWaypointTrait {
+  symbol: string;
+  name: string;
+  description: string;
 }

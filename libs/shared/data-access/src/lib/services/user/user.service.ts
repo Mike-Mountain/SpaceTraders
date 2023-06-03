@@ -1,17 +1,11 @@
 import {Injectable} from '@angular/core';
 import {
   catchError,
-  combineLatestAll,
-  combineLatestWith,
-  forkJoin,
   map,
   Observable,
-  of,
-  switchMap,
-  tap,
   zip
 } from 'rxjs';
-import {Agent, Contract, Faction, FactionSummary, Ship, User} from '../../models';
+import {Agent, Contract, FactionSummary, Ship, User} from '../../models';
 import {HttpClient} from '@angular/common/http';
 import {EndpointService} from '../endpoint/endpoint.service';
 import {ApiResponse} from '@space-trader/api/utils';
@@ -36,7 +30,7 @@ export class UserService {
     return this.http.get<ApiResponse<Ship[]>>(url).pipe(
       map((response) => {
         // TODO: How do I know which ship?
-        this.userState.setUserDetails({ship: response.data[0]});
+        this.userState.setUserDetails({ships: response.data});
         return response.data;
       }),
       catchError((err) => {
@@ -50,7 +44,7 @@ export class UserService {
     return this.http.get<ApiResponse<Contract[]>>(url).pipe(
       map((response) => {
         // TODO: How do I know which contract?
-        this.userState.setUserDetails({contract: response.data[0]});
+        this.userState.setUserDetails({contracts: response.data});
         return response.data;
       }),
       catchError((err) => {
@@ -99,8 +93,8 @@ export class UserService {
         return {
           agent: results[0] as Agent,
           faction: (results[1] as FactionSummary[])[0],
-          contract: (results[2] as Contract[])[0],
-          ship: (results[3] as Ship[])[0],
+          contracts: (results[2] as Contract[]),
+          ships: (results[3] as Ship[]),
           token
         } as User
       })

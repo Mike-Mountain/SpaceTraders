@@ -1,17 +1,33 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardControllerComponent } from './components';
-import { ShipLocationStringPipe } from './pipes/ship-location-string/ship-location-string.pipe';
-import { ContractDescriptionPipe } from './pipes/contract-description/contract-descrtiption.pipe';
+import {
+  DashboardControllerComponent,
+  ContractDetailsComponent,
+} from './components';
+import { ShipLocationStringPipe, ContractDescriptionPipe } from './pipes';
+import { ContractExpiredPipe } from './pipes/contract-expired/contract-expired.pipe';
+import { GetPlanetImagePipe } from '@spaceTrader/shared/ui';
+import { HasShipyardPipe } from './pipes/has-shipyard/has-shipyard.pipe';
+import { WaypointDetailsComponent } from './components/waypoint-details/waypoint-details.component';
 
 @NgModule({
   declarations: [
     DashboardControllerComponent,
     ShipLocationStringPipe,
     ContractDescriptionPipe,
+    ContractDetailsComponent,
+    ContractExpiredPipe,
+    HasShipyardPipe,
+    WaypointDetailsComponent,
   ],
-  imports: [CommonModule, DashboardRoutingModule],
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    NgOptimizedImage,
+    GetPlanetImagePipe,
+  ],
+  exports: [ContractDetailsComponent],
 })
 export class DashboardModule {}

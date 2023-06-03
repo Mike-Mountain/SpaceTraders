@@ -7,4 +7,5 @@ export interface Endpoints {
   agent: string;
   contracts: string;
   systems: string;
+  waypoints: string;
 }

@@ -14,6 +14,6 @@ export class SystemListComponent {
 
   constructor(private systemService: SystemService,
               private systemState: SystemState) {
-    this.systems$ = systemState.getHasCache() ? systemState.getSystems() : systemService.getAllSystems();
+    this.systems$ = systemState.getHasSystemCache() ? systemState.getSystems() : systemService.getAllSystems();
   }
 }
