@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {SystemState, SystemWaypoint} from "@space-trader/shared/data-access";
-import {filter, map, Observable, switchMap} from "rxjs";
+import {SystemState, SystemWaypoint, SystemWaypointTrait} from "@space-trader/shared/data-access";
+import {filter, map, Observable, switchMap, take} from "rxjs";
 import {SystemService} from "@space-trader/api/data-access";
 
 @Component({
@@ -12,6 +12,8 @@ import {SystemService} from "@space-trader/api/data-access";
 export class WaypointDetailsComponent {
 
   waypoint$: Observable<SystemWaypoint>;
+  marketDetails$: Observable<any> | undefined;
+  selectedTrait: SystemWaypointTrait | undefined;
 
   constructor(private route: ActivatedRoute,
               private systemState: SystemState,
@@ -19,20 +21,31 @@ export class WaypointDetailsComponent {
     const hasCache = systemState.getHasWaypointCache();
     this.waypoint$ = route.params.pipe(
       switchMap(params => {
-        const systemSymbol =  params['symbol'].slice(0, 6);
-        console.log(systemSymbol);
+        const systemSymbol =  params['symbol'].slice(0, 7);
         if (hasCache) {
           return systemState.getWaypoint(params['symbol'])
         } else {
           return systemService.getSystemWaypoints(systemSymbol).pipe(
             map(systems => {
-              console.log(systems[0]);
-              console.log(systems.filter(system => system.systemSymbol === systemSymbol)[0]);
-              return systems.filter(system => system.systemSymbol === systemSymbol)[0]
+              const selectedSystem = systems.filter(system => system.symbol === params['symbol'])[0]
+              if (selectedSystem.traits) {
+                this.selectedTrait = selectedSystem.traits[0];
+              }
+              return selectedSystem;
             })
           );
         }
       })
     )
+  }
+
+  selectTrait(systemSymbol: string, waypointSymbol: string, trait: SystemWaypointTrait) {
+    if (trait.symbol === 'SHIPYARD' || trait.symbol === 'MARKETPLACE') {
+      const type = trait.symbol === 'SHIPYARD' ? 'shipyard' : 'market';
+      this.marketDetails$ = this.systemService.getMarketDetails(systemSymbol, waypointSymbol, type);
+      this.selectedTrait = trait;
+    } else {
+      this.selectedTrait = trait;
+    }
   }
 }

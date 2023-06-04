@@ -22,7 +22,7 @@ export class DashboardControllerComponent {
       map(user => {
         return {
           ...user,
-          contracts: user.contracts.filter(contract => !ContractExpiredPipe.prototype.transform(contract.expiration))
+          contracts: user.contracts?.filter(contract => !ContractExpiredPipe.prototype.transform(contract.expiration))
         } as User
       }),
       map(user => {

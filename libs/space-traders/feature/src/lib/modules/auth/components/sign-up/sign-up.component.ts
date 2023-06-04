@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FactionsService, AuthService } from '@space-trader/api/data-access';
-import { UserState } from '@space-trader/shared/data-access';
+import {NavigationRoutes, UserState} from '@space-trader/shared/data-access';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'feature-sign-up',
@@ -18,7 +19,8 @@ export class SignUpComponent {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private factionsService: FactionsService,
-    private userState: UserState
+    private userState: UserState,
+    private router: Router,
   ) {
     this.getFactions();
     this.form = formBuilder.group({
@@ -38,6 +40,7 @@ export class SignUpComponent {
     this.authService.register(callSign, faction).subscribe((data: any) => {
       this.userState.setUserDetails(data);
       localStorage.setItem('token', data.token);
+      this.router.navigate([NavigationRoutes.DASHBOARD])
     });
   }
 

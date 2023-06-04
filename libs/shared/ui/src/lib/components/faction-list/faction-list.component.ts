@@ -25,10 +25,11 @@ export class FactionListComponent {
     private router: Router
   ) {
     this.factions$ = factionsService.getAllFactions();
-    this.isRegister = router.url.includes('auth');
+    this.isRegister = router.url.includes('sign');
   }
 
   selectFaction(faction: string) {
+    console.log(faction);
     this.selectedFaction = faction;
     this.selected.emit(faction);
   }

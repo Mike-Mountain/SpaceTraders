@@ -44,4 +44,13 @@ export class SystemService {
       })
     )
   }
+
+  getMarketDetails(systemSymbol: string, waypointSymbol: string, marketType: 'shipyard' | 'market') {
+    const url = `${this.endpointService.endpoints.systems}/${systemSymbol}${this.endpointService.endpoints.waypoints}/${waypointSymbol}/${marketType}`
+    return this.http.get<ApiResponse<any[]>>(url).pipe(
+      map(response => {
+        return response.data;
+      })
+    )
+  }
 }

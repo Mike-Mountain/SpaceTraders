@@ -2,7 +2,7 @@
   <div class="navbar-brand flex-between">
     <div class="flex-start">
 
-      <div class="agent-info">
+      <div class="agent-info" *ngIf="agent">
         <a class="navbar-item has-text-light flex-column flex-align-start" [routerLink]="NavigationRoutes.DASHBOARD">
           {{agent.symbol}}
           <small>{{agent.credits | currency : '$'}}</small>

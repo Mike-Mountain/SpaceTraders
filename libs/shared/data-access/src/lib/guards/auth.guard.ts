@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { UserState } from '../state';
 import { map, Observable, of, switchMap } from 'rxjs';
-import { User } from '../models';
+import {NavigationRoutes, User} from '../models';
 import { Router } from '@angular/router';
 import { UserService } from '../services';
 
@@ -15,7 +15,7 @@ export const authGuard = (): Observable<boolean> => {
     if (token) {
       userState.setUserDetails({ token });
     } else {
-      router.navigate(['/']);
+      router.navigate([NavigationRoutes.SIGNUP]);
       throw new Error('Token not set, please log in!');
     }
   }
