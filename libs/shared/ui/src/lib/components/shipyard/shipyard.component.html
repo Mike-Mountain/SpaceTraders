@@ -1,1 +1,9 @@
-<p>shipyard works!</p>
+<section class="shipyard flex-center flex-wrap" *ngIf="shipyard">
+  <ng-container *ngFor="let ship of shipyard.ships">
+    <div class="card card-light m-2 w-40">
+      <div class="card-content">
+        <p>{{ship.frame.name}}</p>
+      </div>
+    </div>
+  </ng-container>
+</section>

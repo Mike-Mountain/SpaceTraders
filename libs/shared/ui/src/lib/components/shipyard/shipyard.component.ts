@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Shipyard } from '@space-trader/shared/data-access';
 
 @Component({
   selector: 'shared-ui-shipyard',
@@ -8,4 +9,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './shipyard.component.html',
   styleUrls: ['./shipyard.component.scss'],
 })
-export class ShipyardComponent {}
+export class ShipyardComponent {
+  @Input() shipyard!: Shipyard;
+  selectedType = '';
+
+  constructor() {}
+}

@@ -8,7 +8,7 @@ import {
 } from './components';
 import { ShipLocationStringPipe, ContractDescriptionPipe } from './pipes';
 import { ContractExpiredPipe } from './pipes/contract-expired/contract-expired.pipe';
-import { GetPlanetImagePipe } from '@spaceTrader/shared/ui';
+import {GetPlanetImagePipe, ShipyardComponent} from '@spaceTrader/shared/ui';
 import { HasShipyardPipe } from './pipes/has-shipyard/has-shipyard.pipe';
 import { WaypointDetailsComponent } from './components/waypoint-details/waypoint-details.component';
 
@@ -27,6 +27,7 @@ import { WaypointDetailsComponent } from './components/waypoint-details/waypoint
     DashboardRoutingModule,
     NgOptimizedImage,
     GetPlanetImagePipe,
+    ShipyardComponent,
   ],
   exports: [ContractDetailsComponent],
 })

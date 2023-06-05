@@ -21,8 +21,15 @@
         <div class="card-content">
           <p>{{selectedTrait.description}}</p>
           <hr class="dropdown-divider" *ngIf="marketDetails$">
-          <!--// TODO: Create market details component-->
-          <p *ngIf="marketDetails$">{{(marketDetails$ | async) | json}}</p>
+          <ng-container *ngIf="marketDetails$">
+            <ng-container [ngSwitch]="selectedTrait.symbol">
+              <ng-container *ngSwitchCase="'SHIPYARD'">
+                <shared-ui-shipyard
+                  [shipyard]="(marketDetails$ | async)!"
+                ></shared-ui-shipyard>
+              </ng-container>
+            </ng-container>
+          </ng-container>
         </div>
       </div>
     </div>
