@@ -2,3 +2,9 @@
   max-height: 15rem;
   overflow-y: auto;
 }
+
+.card-image {
+  height: 4rem;
+  width: 100%;
+  background: url('../../../../../../shared/ui/src/assets/ships/sapceship.jpeg') top/cover;
+}

@@ -61,7 +61,7 @@ export class SystemService {
       }),
       map((shipyard) => {
         shipyard.ships = shipyard.ships.map((ship) => {
-          ship.frame.name = ship.frame.name.split(' ').shift()?.join(' ');
+          ship.frame.name = ship.frame.name.split(' ').slice(1).join(' ');
           return ship;
         });
         return shipyard;

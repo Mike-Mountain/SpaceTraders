@@ -2,6 +2,7 @@ import { RegistrationDetails } from './user.interface';
 
 export interface Ship {
   symbol: string;
+  purchasePrice?: number;
   nav: ShipNavigation;
   crew: ShipCrew;
   fuel: ShipFuel;

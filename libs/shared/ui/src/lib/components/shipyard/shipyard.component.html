@@ -1,8 +1,12 @@
 <section class="shipyard flex-center flex-wrap" *ngIf="shipyard">
   <ng-container *ngFor="let ship of shipyard.ships">
     <div class="card card-light m-2 w-40">
+      <div class="card-header">
+        <small class="card-header-title">{{ship.frame.name}}</small>
+      </div>
+      <div class="card-image"></div>
       <div class="card-content">
-        <p>{{ship.frame.name}}</p>
+        <p class="m-0 flex-center">{{ship.purchasePrice! | currency}}</p>
       </div>
     </div>
   </ng-container>
