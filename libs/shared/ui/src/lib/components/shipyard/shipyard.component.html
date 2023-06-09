@@ -1,13 +1,16 @@
 <section class="shipyard flex-center flex-wrap" *ngIf="shipyard">
   <ng-container *ngFor="let ship of shipyard.ships">
-    <div class="card card-light m-2 w-40">
-      <div class="card-header">
-        <small class="card-header-title">{{ship.frame.name}}</small>
+    <button class="card card-info-bg m-2 w-40">
+      <div class="card-header flex-between pl-1 py-1">
+        <small>{{ship.frame.name}}</small>
+        <button class="border-none bg-none">
+          <small class="tag is-success">Buy</small>
+        </button>
       </div>
       <div class="card-image" [style]="{background: 'url(\'assets/ships/' + ship.frame.symbol + '.png\') no-repeat center/contain'}"></div>
       <div class="card-content">
         <p class="m-0 flex-center">{{ship.purchasePrice! | currency}}</p>
       </div>
-    </div>
+    </button>
   </ng-container>
 </section>

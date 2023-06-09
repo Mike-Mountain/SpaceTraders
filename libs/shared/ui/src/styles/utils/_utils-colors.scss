@@ -1,4 +1,8 @@
 // 1. Background Colours
+.bg-none {
+  background: transparent !important;
+}
+
 .bg-color-primary {
   background-color: var(--primary) !important;
 }
