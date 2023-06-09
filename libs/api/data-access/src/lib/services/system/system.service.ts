@@ -57,9 +57,11 @@ export class SystemService {
     const url = `${this.endpointService.endpoints.systems}/${systemSymbol}${this.endpointService.endpoints.waypoints}/${waypointSymbol}/${marketType}`;
     return this.http.get<ApiResponse<Shipyard>>(url).pipe(
       map((response) => {
+        console.log(response);
         return response.data;
       }),
       map((shipyard) => {
+        console.log(shipyard);
         shipyard.ships = shipyard.ships.map((ship) => {
           ship.frame.name = ship.frame.name.split(' ').slice(1).join(' ');
           return ship;

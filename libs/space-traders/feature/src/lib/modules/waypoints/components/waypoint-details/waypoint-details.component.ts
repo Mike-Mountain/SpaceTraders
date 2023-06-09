@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   SystemState,
   SystemWaypoint,
@@ -21,11 +21,12 @@ export class WaypointDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private systemState: SystemState,
     private systemService: SystemService
   ) {
     const hasCache = systemState.getHasWaypointCache();
-    this.waypoint$ = route.params.pipe(
+    this.waypoint$ = route.parent!.params.pipe(
       switchMap((params) => {
         const systemSymbol = params['symbol'].slice(0, 7);
         if (hasCache) {

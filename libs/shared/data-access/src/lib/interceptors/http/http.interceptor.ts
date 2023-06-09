@@ -18,6 +18,12 @@ export class HttpInterceptor implements HttpInterceptor {
     return userState.getUserDetails().pipe(
       switchMap((user) => {
         let headers = new HttpHeaders();
+        if (!user.token) {
+          const token = localStorage.getItem('token');
+          if (token) {
+            userState.setUserDetails({ token });
+          }
+        }
         if (user.token) {
           headers = headers.append('AUTHORIZATION', `Bearer ${user.token}`);
         }

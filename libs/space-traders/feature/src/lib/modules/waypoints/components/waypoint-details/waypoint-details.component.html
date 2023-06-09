@@ -1,0 +1,29 @@
+<section class="waypoint-details p-0" *ngIf="waypoint$ | async as waypoint">
+  <h4 class="text-center" *ngIf="waypoint.faction">{{waypoint.faction.symbol}}</h4>
+  <div class="flex-between flex-wrap">
+    <ng-container *ngFor="let trait of waypoint.traits!">
+      <button
+        *ngIf="waypoint.systemSymbol && waypoint.symbol"
+        class="tag is-info"
+        [class.is-success]="selectedTrait?.symbol === trait.symbol"
+        (click)="selectTrait(waypoint.systemSymbol, waypoint.symbol, trait)"
+      >{{trait.name}}</button>
+    </ng-container>
+  </div>
+
+  <div class="card card-info mt-4" *ngIf="selectedTrait">
+    <div class="card-content">
+      <p>{{selectedTrait.description}}</p>
+      <hr class="dropdown-divider" *ngIf="marketDetails$">
+      <ng-container *ngIf="marketDetails$">
+        <ng-container [ngSwitch]="selectedTrait.symbol">
+          <ng-container *ngSwitchCase="'SHIPYARD'">
+            <shared-ui-shipyard
+              [shipyard]="(marketDetails$ | async)!"
+            ></shared-ui-shipyard>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</section>

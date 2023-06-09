@@ -25,7 +25,7 @@
               <a
                 class="flex-column flex-center m-2 border-radius-4"
                 [class.has-background-success]="waypoint.traits | hasShipyard"
-                [routerLink]="NavigationRoutes.WAYPOINT + waypoint.symbol"
+                [routerLink]="'/' + NavigationRoutes.WAYPOINT + '/' + waypoint.symbol"
               >
                 <img [ngSrc]="waypoint.type | getPlanetImage : waypoint.traits" alt="" width="48" height="37">
                 <div class="tag is-info">{{waypoint.symbol}}</div>

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "serve": "nx serve space-trader --port 3200"
+    "serve": "nx serve space-trader --port 3200",
+    "serve:host": "nx serve space-trader --port 3200 --host 0.0.0.0"
   },
   "private": true,
   "dependencies": {

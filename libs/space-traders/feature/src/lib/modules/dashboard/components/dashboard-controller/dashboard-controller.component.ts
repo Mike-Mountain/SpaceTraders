@@ -1,8 +1,15 @@
-import {Component} from '@angular/core';
-import {NavigationRoutes, System, SystemWaypoint, User, UserState} from '@space-trader/shared/data-access';
-import {map, Observable} from 'rxjs';
-import {ContractExpiredPipe} from "../../pipes";
-import {SystemService} from "@space-trader/api/data-access";
+import { Component } from '@angular/core';
+import {
+  NavigationRoutes,
+  PlanetTypes,
+  System,
+  SystemWaypoint,
+  User,
+  UserState,
+} from '@space-trader/shared/data-access';
+import { map, Observable } from 'rxjs';
+import { ContractExpiredPipe } from '../../pipes';
+import { SystemService } from '@space-trader/api/data-access';
 
 @Component({
   selector: 'feature-dashboard-controller',
@@ -16,24 +23,36 @@ export class DashboardControllerComponent {
   systemWaypoints$!: Observable<SystemWaypoint[]>;
   expandLocation = false;
 
-  constructor(private userState: UserState,
-              private systemService: SystemService) {
+  constructor(
+    private userState: UserState,
+    private systemService: SystemService
+  ) {
     this.user$ = userState.getUserDetails().pipe(
-      map(user => {
+      map((user) => {
         return {
           ...user,
-          contracts: user.contracts?.filter(contract => !ContractExpiredPipe.prototype.transform(contract.expiration))
-        } as User
+          contracts: user.contracts?.filter(
+            (contract) =>
+              !ContractExpiredPipe.prototype.transform(contract.expiration)
+          ),
+        } as User;
       }),
-      map(user => {
-        this.systemWaypoints$ = systemService.getSystemWaypoints(user.ships[0].nav.systemSymbol);
+      map((user) => {
+        this.systemWaypoints$ = systemService.getSystemWaypoints(
+          user.ships[0].nav.systemSymbol
+        );
         this.currentUserLocation$ = this.systemWaypoints$.pipe(
-          map(waypoints => {
-            return waypoints.filter(waypoint => waypoint.systemSymbol === user.ships[0].nav.systemSymbol)[0];
+          map((waypoints) => {
+            return waypoints.filter(
+              (waypoint) =>
+                waypoint.systemSymbol === user.ships[0].nav.systemSymbol
+            )[0];
           })
         );
         return user;
-      }),
+      })
     );
   }
+
+  protected readonly PlanetTypes = PlanetTypes;
 }

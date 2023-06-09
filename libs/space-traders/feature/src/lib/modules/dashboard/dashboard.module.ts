@@ -8,9 +8,8 @@ import {
 } from './components';
 import { ShipLocationStringPipe, ContractDescriptionPipe } from './pipes';
 import { ContractExpiredPipe } from './pipes/contract-expired/contract-expired.pipe';
-import {GetPlanetImagePipe, ShipyardComponent} from '@spaceTrader/shared/ui';
+import { GetPlanetImagePipe, ShipyardComponent } from '@spaceTrader/shared/ui';
 import { HasShipyardPipe } from './pipes/has-shipyard/has-shipyard.pipe';
-import { WaypointDetailsComponent } from './components/waypoint-details/waypoint-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { WaypointDetailsComponent } from './components/waypoint-details/waypoint
     ContractDetailsComponent,
     ContractExpiredPipe,
     HasShipyardPipe,
-    WaypointDetailsComponent,
   ],
   imports: [
     CommonModule,
