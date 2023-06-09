@@ -2,7 +2,6 @@ import { RegistrationDetails } from './user.interface';
 
 export interface Ship {
   symbol: string;
-  purchasePrice?: number;
   nav: ShipNavigation;
   crew: ShipCrew;
   fuel: ShipFuel;
@@ -13,6 +12,7 @@ export interface Ship {
   mounts: ShipMount[];
   registration: RegistrationDetails;
   cargo: ShipCargo;
+  purchasePrice?: number;
 }
 
 export interface ShipNavigation {
