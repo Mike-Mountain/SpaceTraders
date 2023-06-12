@@ -5,11 +5,11 @@ import {
   Observable,
   zip
 } from 'rxjs';
-import {Agent, Contract, FactionSummary, Ship, User} from '../../models';
+import {Agent, Contract, FactionSummary, Ship, User} from '@space-trader/shared/data-access';
 import {HttpClient} from '@angular/common/http';
-import {EndpointService} from '../endpoint/endpoint.service';
+import {EndpointService} from '@space-trader/shared/data-access';
 import {ApiResponse} from '@space-trader/api/utils';
-import {UserState} from '../../state';
+import {UserState} from '@space-trader/shared/data-access';
 import {JsonPipe} from '@angular/common';
 
 @Injectable({

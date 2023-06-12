@@ -37,7 +37,7 @@ export class SystemService {
     systemSymbol: string,
     page?: string
   ): Observable<SystemWaypoint[]> {
-    let url = `${this.endpointService.endpoints.systems}/${systemSymbol}${this.endpointService.endpoints.waypoints}?limit=20`;
+    let url = `${this.endpointService.endpoints.systems}/${systemSymbol}/${this.endpointService.endpoints.waypoints}?limit=20`;
     if (page) {
       url += `&page=${page}`;
     }
@@ -54,7 +54,7 @@ export class SystemService {
     waypointSymbol: string,
     marketType: 'shipyard' | 'market'
   ): Observable<Shipyard> {
-    const url = `${this.endpointService.endpoints.systems}/${systemSymbol}${this.endpointService.endpoints.waypoints}/${waypointSymbol}/${marketType}`;
+    const url = `${this.endpointService.endpoints.systems}/${systemSymbol}/${this.endpointService.endpoints.waypoints}/${waypointSymbol}/${marketType}`;
     return this.http.get<ApiResponse<Shipyard>>(url).pipe(
       map((response) => {
         console.log(response);

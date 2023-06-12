@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {
+  NavigationRoutes,
   SystemState,
   SystemWaypoint,
   SystemWaypointTrait,
 } from '@space-trader/shared/data-access';
-import { filter, map, Observable, switchMap, take } from 'rxjs';
-import { SystemService } from '@space-trader/api/data-access';
-import { Shipyard } from '@space-trader/shared/data-access';
+import {filter, map, Observable, switchMap, take} from 'rxjs';
+import {SystemService} from '@space-trader/api/data-access';
+import {Shipyard} from '@space-trader/shared/data-access';
 
 @Component({
   selector: 'feature-waypoint-details',
@@ -53,16 +54,8 @@ export class WaypointDetailsComponent {
     waypointSymbol: string,
     trait: SystemWaypointTrait
   ) {
-    if (trait.symbol === 'SHIPYARD' || trait.symbol === 'MARKETPLACE') {
-      const type = trait.symbol === 'SHIPYARD' ? 'shipyard' : 'market';
-      this.marketDetails$ = this.systemService.getMarketDetails(
-        systemSymbol,
-        waypointSymbol,
-        type
-      );
-      this.selectedTrait = trait;
-    } else {
-      this.selectedTrait = trait;
-    }
+    this.selectedTrait = trait;
   }
+
+  protected readonly NavigationRoutes = NavigationRoutes;
 }

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, map, Observable, take, tap, zip} from 'rxjs';
-import { Agent, User } from '../../models/interfaces/user.interface';
+import {BehaviorSubject, Observable, take} from 'rxjs';
+import { User } from '../../models';
 import { HttpClient } from '@angular/common/http';
-import { Contract, Faction, Ship } from '../../models';
-import { ApiResponse } from '@space-trader/api/utils';
 import { EndpointService } from '../../services';
 
 @Injectable({

@@ -1,9 +1,9 @@
-import { inject } from '@angular/core';
-import { UserState } from '../state';
-import { map, Observable, of, switchMap } from 'rxjs';
-import {NavigationRoutes, User} from '../models';
-import { Router } from '@angular/router';
-import { UserService } from '../services';
+import {inject} from '@angular/core';
+import {UserState} from '@space-trader/shared/data-access';
+import {Observable, of, switchMap} from 'rxjs';
+import {NavigationRoutes, User} from '@space-trader/shared/data-access';
+import {Router} from '@angular/router';
+import {UserService} from "../services";
 
 export const authGuard = (): Observable<boolean> => {
   const userState = inject(UserState);
@@ -13,7 +13,7 @@ export const authGuard = (): Observable<boolean> => {
   if (!userState.getToken()) {
     const token = localStorage.getItem('token');
     if (token) {
-      userState.setUserDetails({ token });
+      userState.setUserDetails({token});
     } else {
       router.navigate([NavigationRoutes.SIGNUP]);
       throw new Error('Token not set, please log in!');

@@ -23,9 +23,6 @@
       ],
       "@space-trader/shared/feature": ["libs/shared/feature/src/index.ts"],
       "@space-trader/shared/utils": ["libs/shared/utils/src/index.ts"],
-      "@space-trader/space-traders/waypoint": [
-        "libs/space-traders/feature/src/lib/modules/waypoints"
-      ],
       "@space-trader/space-traders/dashboard": [
         "libs/space-traders/feature/src/lib/modules/dashboard"
       ],
@@ -34,6 +31,9 @@
       ],
       "@space-trader/space-traders/system": [
         "libs/space-traders/feature/src/lib/modules/system"
+      ],
+      "@space-trader/space-traders/waypoint": [
+        "libs/space-traders/feature/src/lib/modules/waypoints"
       ],
       "@spaceTrader/shared/ui": ["libs/shared/ui/src/index.ts"]
     }

@@ -10,4 +10,5 @@ export enum NavigationRoutes {
   WAYPOINT = 'waypoint',
   CONTRACTPATH = 'contract/:id',
   CONTRACT = 'contract/',
+  SHIPYARD = 'shipyard'
 }

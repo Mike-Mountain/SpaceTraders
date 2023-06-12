@@ -18,7 +18,8 @@ export class EndpointService {
       contracts: `${this.baseGameApi}/my/contracts`,
       ships: `${this.baseGameApi}/my/ships`,
       systems: `${this.baseGameApi}/systems`,
-      waypoints: '/waypoints',
+      waypoints: 'waypoints',
+      shipyard: 'shipyard'
     };
   }
 }

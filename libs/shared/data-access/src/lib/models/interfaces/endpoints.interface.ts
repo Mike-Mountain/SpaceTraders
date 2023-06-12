@@ -8,4 +8,5 @@ export interface Endpoints {
   contracts: string;
   systems: string;
   waypoints: string;
+  shipyard: string;
 }
